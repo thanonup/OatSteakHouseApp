@@ -1,66 +1,32 @@
-import { StyleSheet, Text, Image, View, TouchableOpacity } from "react-native";
-import Icon from "react-native-vector-icons/Ionicons";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+import PinnedMessage from "./PinnedMessage";
+import HeaderMenuApp from "./HeaderMenuApp";
 
-export default function HeaderApp() {
+export default function HeaderApp(props: StylesProps) {
   return (
-    <View style={styles.header}>
-      <View style={styles.menuHedaer}>
-        <View style={styles.menuHedaerLeft}>
-          <Text style={styles.greetingText}>สวัสดี, username</Text>
+    <View style={[styles.header, { flex: props.flexVlaue }]}>
+      <SafeAreaView style={styles.safeAreaView}>
+        <View style={styles.columnMenu}>
+          <HeaderMenuApp />
+          <PinnedMessage />
         </View>
-        <View style={styles.menuHedaerRight}>
-          <TouchableOpacity onPress={() => console.log("click chat")}>
-            <Icon
-              style={styles.chatbox}
-              name="chatbox-ellipses"
-              size={50}
-              color="white"
-            ></Icon>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => console.log("click profile")}>
-            <Image
-              style={styles.userProfile}
-              source={{ uri: "https://randomuser.me/api/portraits/lego/8.jpg" }}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
+      </SafeAreaView>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  header: {
-    flex: 0.3,
-    backgroundColor: "#a53a1c",
-    padding: 20,
-  },
-  menuHedaer: {
-    flex: 0.3,
-    // backgroundColor: "#ffffff33",
-    marginTop: 30,
-    flexDirection: "row",
-  },
-  menuHedaerLeft: {
-    flex: 2,
-    // backgroundColor: "#2ea51c64",
-    justifyContent: "center",
-  },
-  menuHedaerRight: {
+  safeAreaView: {
     flex: 1,
-    // backgroundColor: "#cf742490",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    alignItems: "center",
   },
-  greetingText: {
-    color: "#fff",
-    fontSize: 24,
+  columnMenu: {
+    flexDirection: "column",
+    flex: 1,
+    gap: 10,
   },
-  userProfile: {
-    width: 50,
-    height: 50,
-    borderRadius: 100 / 2,
+  header: {
+    backgroundColor: "#a53a1c",
+    paddingLeft: 10,
+    paddingRight: 10,
   },
-  chatbox: {},
 });

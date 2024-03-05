@@ -1,0 +1,3 @@
+interface StylesProps{
+    flexVlaue: number
+}
