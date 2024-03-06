@@ -27,6 +27,8 @@ const styles = StyleSheet.create({
     // alignItems: "center",
     justifyContent: "center",
     borderRadius: 20,
+    paddingLeft: 5,
+    paddingRight: 5,
   },
   massageText: {
     fontSize: 24,
