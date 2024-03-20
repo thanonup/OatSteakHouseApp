@@ -1,8 +1,8 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
-import HeaderApp from "./components/HeaderApp";
-import MainPage from "./components/MainPage";
-import BottomMenu from "./components/BottomMenu";
+import HeaderApp from "./src/components/HeaderApp";
+import MainPage from "./src/components/MainPage";
+import BottomMenu from "./src/components/BottomMenu";
 
 export default function App() {
   return (

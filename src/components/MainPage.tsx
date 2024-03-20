@@ -5,7 +5,10 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  FlatList,
 } from "react-native";
+import PaginationPreviewView from "./PaginationPreviewView";
+import { previewData } from "../data/PreviewData";
 
 const { width, height } = Dimensions.get("window");
 
@@ -16,10 +19,15 @@ export default function MainPage(props: StylesProps) {
         style={styles.scrollView}
         contentContainerStyle={styles.contentContainerStyle}
       >
-        <Image
-          style={styles.imageTest}
-          source={require("../assets/mockAsset/allmenu.jpg")}
-          resizeMode="contain"
+        <FlatList
+          style={styles.flatListPreview}
+          // bounces={false}
+          // pagingEnabled={true}
+          data={previewData}
+          // horizontal={true}
+          renderItem={({ item }) => (
+            <PaginationPreviewView previewData={item} />
+          )}
         />
       </ScrollView>
     </View>
@@ -32,11 +40,10 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     backgroundColor: "pink",
-    marginHorizontal: 10,
     paddingVertical: 10,
   },
   contentContainerStyle: {
     alignItems: "center",
   },
-  imageTest: {},
+  flatListPreview: {},
 });
